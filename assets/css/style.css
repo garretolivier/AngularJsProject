@@ -1,0 +1,203 @@
+/***** RESET *****/
+html,body, .container-fluid{
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #555;
+}
+h1, h2, h3, h4, h5, h6{
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: #333;
+}
+/***** NAVBAR *****/
+
+/***** HEADER *****/
+.backgrHeaderDL{
+  background:#009688;
+  background-image:linear-gradient(45deg, #009688 2%, #FFF 9%, #009688 90%);
+}
+header {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  text-align: center;
+  box-shadow: 1px 5px 1px rgba(0, 0, 0, .6);
+}
+.headerTitleDL {
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 4em;
+  font-weight: normal;
+  color: white;
+  font-family: 'Charmonman', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px rgba(0, 0, 0, .3),
+               2px 2px rgba(0, 0, 0, .3),
+               3px 3px rgba(0, 0, 0, .3),
+               3px 3px rgba(0, 0, 0, .3),
+               4px 4px rgba(0, 0, 0, .3),
+               5px 5px rgba(0, 0, 0, .3);
+}
+.headerDescDL {
+  font-size: 20px;
+  color: #999;
+}
+.basketBackgDL{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 20px;
+  box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, .4);
+}
+.pBasketDL{
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+/***** SIDEBAR GAUCHE *****/
+.sidebar-module {
+  padding: 15px;
+  margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+  margin-bottom: 0;
+}
+/**** Description produits ****/
+.descProductDL {
+  margin-bottom: 60px;
+}
+.descProductTitleDL {
+  margin-bottom: 5px;
+  font-size: 40px;
+}
+.descProductMetaDL {
+  margin-bottom: 20px;
+  color: #999;
+}
+.buttonAddDL{
+  background: none;
+  border: none;
+}
+.dropdown:hover > #cart-dropdown{
+  display: block;
+}
+/***** FOOTER *****/
+footer {
+ padding: 10px 0;
+}
+.fa-share-square, .fa-truck,
+.fa-users, .fa-lightbulb{
+ font-size: 40px;
+ border: solid #FCAC45 4px;
+ width: 100px;
+ height: 100px;
+ padding: 27px 25px;
+ margin-bottom: 10px;
+ border-radius: 50%;
+ transition: all 0.5s;
+ color: #FFF;
+}
+.h2FootDL, .h4FootDL {
+  color: white;
+}
+.lineDL{
+  margin: 10px 0;
+}
+.hrFootDL {
+  background-color: white;
+}
+.labelNewsDL{
+  text-decoration: underline;
+  font-weight:
+}
+/*** ICONS ***/
+.fa-facebook{
+  font-size: 2.5em;
+  color: #4267b2;
+}
+.fa-twitter-square{
+  font-size: 2.5em;
+  color: #1da1f2;
+}
+.fa-linkedin{
+  font-size: 2.5em;
+  color: #0077b5;
+}
+.fa-google-plus-square{
+  font-size: 2.5em;
+  color: #db4437;
+}
+.fa-instagram{
+  font-size: 2.5em;
+  color: #843dcb;
+}
+.fa-shopping-basket{
+  font-size: 2em;
+}
+/***** RESPONSIVE *****/
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (max-width: 800px) {
+  .headerTitleDL{
+    font-size: 3.5em;
+  }
+  .basketBackgDL{
+    box-shadow: none;
+    position: absolute;
+    top: -10px;
+    right: 5px;
+  }
+  .pBasketDL{
+    display: none;
+  }
+}
+
+/**************** OLIVIER ****************/
+.productSheetog{
+  background-image: radial-gradient(circle at top left, #009688, #FFF);
+  box-shadow: 6px 6px 6px black;
+  border-radius: 3px;
+}
+.imageProductog{
+  width: 150px;
+  border-radius:10px;
+  box-shadow: 6px 6px 6px black;
+}
+.productRefog{
+  margin-top: 50px;
+  font-family: 'Charmonman', cursive;
+}
+.txtProductog{
+  margin-top:45px;
+  font-size: 20px;
+  font-family: 'Shadows Into Light', cursive;
+}
+.panierImgog{
+  width: 80px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+  box-shadow: 6px 6px 6px black;
+}
+.productPriceog{
+  font-family: 'Charmonman', cursive;
+  margin-top: 70px;
+  text-decoration: underline;
+  font-size: 170%;
+  color: white;
+  box-shadow: 6px 6px 6px black;
+  border-radius: 30px;
+  text-shadow: 6px 6px 6px black;
+}

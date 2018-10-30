@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../../favicon.ico">
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/font-awesome/css/all.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Charmonman|Shadows+Into+Light" rel="stylesheet">
+  <title>ODaBShop</title>
+</head>
+<body>
+  <div class="backgrHeaderDL">
+    <!-- NAVBAR RESPONSIVE -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- NAVBAR CLASSIQUE -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Catégories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Montre Homme</a>
+              <a class="dropdown-item" href="#">Montre Femme</a>
+              <a class="dropdown-item" href="#">Montre Enfant</a>
+              <a class="dropdown-item" href="#">Bracelets</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item text-danger" href="#">Nos Meilleures Ventes ICI</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <form class="form-inline my-2 my-lg-0 m-4 mb-0 float-right">
+      <div class="text-center basketBackgDL p-3">
+        <p class="pBasketDL">Votre panier</p>
+        <button class="btn btn-success my-2 my-sm-0" data-toggle="modal" data-target="#modalCenter" type="submit"><i class="fas fa-shopping-basket"></i></button>
+      </div>
+    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLongTitle">Votre panier</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="dropdown">
+              <div id="cart">
+                <p><span id="in-cart-items-num">0</span> Articles</p>
+              </div>
+
+              <ul id="cart-dropdown" hidden>
+                <li id="empty-cart-msg"><a>Votre panier est vide</a></li>
+                <li class="go-to-cart hidden"><a href="/panier/">Voir le panier</a></li>
+              </ul>
+            </div>
+
+            <table class="table">
+              <thead>
+                <tr><th>Article</th><th>Prix</th><th>Quantité</th></tr>
+              </thead>
+              <tbody id="cart-tablebody">
+              </tbody>
+            </table>
+
+            <p>Sous total : <span class="subtotal"></span>€</p>
+
+            <button id="confirm-command">Passer la commande</button>
+
+
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="inputState">State</label>
+                  <select id="inputState" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="inputZip">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Check me out
+                  </label>
+                </div>
+              </div>
+              <button id="valid" type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mb-5">
+      <header>
+        <h1 class="headerTitleDL">ODaBShop</h1>
+        <p class="headerDescDL">Leader du E-commerce.</p>
+      </header>
+    </div>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel carouselDL slide mb-5 mt-1" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="assets/img/venteFlash.png" height="155" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="assets/img/1.jpg" height="155" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="assets/img/venteFlash.png" height="155" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-1">
+        <div class="sidebar-module sidebar-module-inset">
+          <h4>Catégories</h4>
+          <ol>
+            <li><a class="dropdown-item" href="#" title="link">Montres</a></li>
+            <li><a class="dropdown-item" href="#" title="link">Lunettes</a></li>
+            <li><a class="dropdown-item" href="#" title="link">Chaussons</a></li>
+            <li><a class="dropdown-item" href="#" title="link">Maillot de bain</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-module">
+          <h4>Articles phares</h4>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" heigth="200" src="assets/img/montre1.jpeg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" heigth="200" src="assets/img/montre2.jpeg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" heigth="200" src="assets/img/montre1.jpeg" alt="Third slide">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="sidebar-module">
+          <h4>EN COURS...</h4>
+          <ol class="list-unstyled">
+            <li><a class="dropdown-item" href="#">TEST</a></li>
+            <li><a class="dropdown-item" href="#">TEST</a></li>
+            <li><a class="dropdown-item" href="#">TEST</a></li>
+          </ol>
+        </div>
+      </div><!-- /.blog-sidebar -->
+      <div class="col-sm-8">
+
+        <div class="descProductDL">
+          <div class="col-xs-12 col-md-12 productSheetog">
+            <div class="row">
+              <div class="col-sm-10 col-xs-10 offset-xs-1 col-md-3 text-center ">
+                <img src="assets/img/montre3.jpg" alt="photo montre" class="imageProductog m-1 mt-4"/>
+                <label class="mt-5" for="q">Quantité: </label>
+                <select id="qt" name="q">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+              </div>
+              <div class="col-md-7 offset-md-1 txtProductog">
+                <h2>Montre Olivier</h2>
+                Messieurs, le modèle Leo Leather Chocolate est la montre homme que vous attendiez !
+                Ultra chic et absolument indémodable avec son bracelet en cuir vintage,
+                cette montre en bois d’indian rosewood vous prouve une fois de plus que les accessoires de mode naturels sont tout simplement les plus beaux !
+                Vous apprécierez le mariage du bois et du cuir, tant pour le design que le confort.
+                Bois :	Indian Rosewood
+                Coloris :	Marron, chocolat
+                Poids :	38 g
+                Diamètre :	46 mm
+                Genre :	Homme
+                Garantie :	2 ans</div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="productRefog">
+                  Ref : watch1520
+                </div>
+                <div class="productPriceog">
+                  1199 €
+                </div>
+                <div>
+                  <button type="button" class="buttonAddDL add-to-cart" data-id="432" data-name="Pastilles" data-price="29,00" data-weight="97" data-url="/produit/pastilles-anti-douleurs/"><img src="assets/img/panier.jpg" alt="image panier" class="panierImgog"/></button>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.blog-post -->
+          <div class="descProductDL">
+
+            <div class="col-xs-12 col-md-12 productSheetog">
+              <div class="row">
+                <div class="col-sm-10 col-xs-10 offset-xs-1 col-md-3 text-center ">
+                  <img src="assets/img/montre4.jpg" alt="photo montre" class="imageProductog m-1 mt-4">
+                </div>
+                <div class="col-md-7 offset-md-1 txtProductog">
+                  <h2>Montre Bertrand</h2>
+                  Matériaux :  Acier
+                  Mouvement :  Automatique
+                  Diamètre montre :  39mm
+                  Etanchéité :  100m
+                  Bracelet :  Cuir
+                  Boucle :  Déployante
+                  Boîte en acier inoxydable - Dimensions: 39 mm x 39 mm
+                  - Deconde permanente à 3 heures, minutes du chronographe à 9 heures, date à 6 heures
+                  - Cadran bleu inspiré de Steve McQueen - Marqueurs luminescents
+                  - Glace saphir - Fond en verre saphir - Bracelet alligator bleu
+                  - Boucle déployante - Mouvement automatique chronographe, calibre 12
+                  - Etanche jusqu'à 100 mètres.</div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="productRefog">
+                    Ref : watch2849
+                  </div>
+                  <div class="productPriceog">
+                    4229 €
+                  </div>
+                  <div>
+                    <input type="image" src="assets/img/panier.jpg" alt="image panier" class="panierImgog"/>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.blog-post -->
+            <div class="descProductDL">
+                            <div class="col-xs-12 col-md-12 productSheetog">
+                <div class="row">
+                  <div class="col-sm-10 col-xs-10 offset-xs-1 col-md-3 text-center ">
+                    <img src="assets/img/montre2.jpg" alt="photo montre" class="imageProductog m-1 mt-4">
+                  </div>
+                  <div class="col-md-7 offset-md-1 txtProductog">
+                    <h2>Montre David</h2>
+                    Chaque pièce est unique
+                    Boîtier - Diamètre: 43mm
+                    Boîtier en acier brossé
+                    Bracelet en cuir avec coutures faites main
+                    Verre en saphir anti-reflets convexe
+                    Mouvement automatique: ETA 2824/2
+                    Étanche jusqu'à 5 mètres
+                    Cadran plusieurs épaisseurs avec 21 pièces
+                    Couronne vissée
+                    Aiguilles des secondes, minutes et heures
+                    Fait en Suisse
+                    Composition: Acier inoxydable, Veau
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <div class="productRefog">
+                    Ref : watch3106
+                  </div>
+                  <div class="productPriceog">
+                    8999 €
+                  </div>
+                  <div>
+                    <input type="image" src="assets/img/panier.jpg" alt="image panier" class="panierImgog"/>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /.blog-post -->
+
+            <div class="descProductDL">
+
+              <div class="col-xs-12 col-md-12 productSheetog">
+                <div class="row">
+                  <div class="col-sm-10 col-xs-10 offset-xs-1 col-md-3 text-center ">
+                    <img src="assets/img/watch.jpg" alt="photo montre" class="imageProductog m-1 mt-4">
+                  </div>
+                  <div class="col-md-7 offset-md-1 txtProductog">
+                    <h2>Montre Antoine</h2>
+                    La nouvelle Yema Superman, évolution des premiers modèles de 1964 est une plongeuse étanche à 300 mètres et équipée d'un bloque-lunette à 3 heures.
+                    Conçue pour être une montre de plongée indestructible, elle fût par la suite choisie pour équiper les pilotes de l'Armée de l'Air Française dans les années 70.</div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div class="productRefog">
+                      Ref : watch3204
+                    </div>
+                    <div class="productPriceog">
+                      3490 €
+                    </div>
+                    <div>
+                      <input type="image" src="assets/img/panier.jpg" alt="image panier" class="panierImgog"/>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.blog-post -->
+              <div class="descProductDL">
+                <h2>Premier Article</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                  ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                  in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+              </div><!-- /.blog-post -->
+              <!-- Navigation bidon -->
+              <nav aria-label="..." class="float-right">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </div><!-- /.blog-main -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+        <!-- footer -->
+        <footer class="text-center bg-dark mt-5 text-white">
+          <div class="container">
+            <div class=" center">
+              <h2 class="h2FootDL">LOREM IPSUM</h2>
+              <div class="lineDL">
+                <hr class="hrFootDL">
+              </div>
+            </div>
+            <div class="space"></div>
+            <div class="row">
+              <div class="col-md-3 col-sm-6 serviceDL">
+                <i class="fas fa-lightbulb"></i>
+                <h4 class="h4FootDL">Nos points forts</h4>
+                <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+              <div class="col-md-3 col-sm-6 serviceDL">
+                <i class="fas fa-users"></i>
+                <h4 class="h4FootDL">Nos partenaires</h4>
+                <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+              <div class="col-md-3 col-sm-6 serviceDL">
+                <i class="fas fa-truck"></i>
+                <h4 class="h4FootDL">Livraison</h4>
+                <p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+              <div class="col-md-3 col-sm-6 serviceDL">
+                <i class="fas fa-share-square"></i>
+                <h4 class="h4FootDL">Nous suivre :</h4>
+                <p class="text-justify">
+                  <label class="labelNewsDL" for="newsletter">NEWSLETTERS</label>
+                  <input type="mail" placeholder="votremail@lamanu.fr"/>
+                </p>
+                <p>
+                  <a href="#"><i class="fab fa-facebook"></i></a>
+                  <a href="#"><i class="fab fa-twitter-square"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <p>
+            <a class="btn btn-primary" href="#">Back to top</a>
+          </p>
+        </footer>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script>
+        var timeout;
+
+        $('#cart').on({
+          mouseenter: function() {
+            $('#cart-dropdown').show();
+          },
+          mouseleave: function() {
+            timeout = setTimeout(function() {
+              $('#cart-dropdown').hide();
+            }, 200);
+          }
+        });
+
+        // laisse le contenu ouvert à son survol
+        // le cache quand la souris sort
+        $('#cart-dropdown').on({
+          mouseenter: function() {
+            clearTimeout(timeout);
+          },
+          mouseleave: function() {
+            $('#cart-dropdown').hide();
+          }
+        });
+        </script>
+
+<script>
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+d.toUTCString();
+
+  // règle le pb des caractères interdits
+  if ('btoa' in window) {
+    cvalue = btoa(cvalue);
+  }
+
+  document.cookie = cname + "=" + cvalue + "; " + expires+';path=/';
+}
+</script>
+
+
+        <script>
+
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+
+          for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c[0] == ' ') {
+              c = c.substring(1);
+            }
+
+            if (c.indexOf(name) != -1) {
+              if ('btoa' in window) {
+                return atob(c.substring(name.length,c.length));
+              }
+              else {
+                return c.substring(name.length,c.length);
+              }
+            }
+          }
+          return false;
+        }</script>
+
+        <script>
+        function saveCart(inCartItemsNum, cartArticles) {
+          setCookie('inCartItemsNum', inCartItemsNum, 5);
+          setCookie('cartArticles', JSON.stringify(cartArticles), 5);
+        }
+        </script>
+
+
+
+        <script>
+        // variables pour stocker le nombre d'articles et leurs noms
+        var inCartItemsNum;
+        var cartArticles;
+
+        // affiche/cache les éléments du panier selon s'il contient des produits
+        function cartEmptyToggle() {
+          if (inCartItemsNum > 0) {
+            $('#cart-dropdown .hidden').removeClass('hidden');
+            $('#empty-cart-msg').hide();
+          }
+
+          else {
+            $('#cart-dropdown .go-to-cart').addClass('hidden');
+            $('#empty-cart-msg').show();
+          }
+        }
+
+        // récupère les informations stockées dans les cookies
+        inCartItemsNum = parseInt(getCookie('inCartItemsNum') ? getCookie('inCartItemsNum') : 0);
+        cartArticles = getCookie('cartArticles') ? JSON.parse(getCookie('cartArticles')) : [];
+
+        cartEmptyToggle();
+
+        // affiche le nombre d'article du panier dans le widget
+        $('#in-cart-items-num').html(inCartItemsNum);
+
+        // hydrate le panier
+        var items = '';
+        cartArticles.forEach(function(v) {
+          items += '<li id="'+ v.id +'"><a href="'+ v.url +'">'+ v.name +'<br><small>Quantité : <span class="qt">'+ v.qt +'</span></small></a></li>';
+        });
+
+        $('#cart-dropdown').prepend(items);
+
+        // click bouton ajout panier
+        $('.add-to-cart').click(function() {
+
+          // récupération des infos du produit
+          var $this = $(this);
+          var id = $this.attr('data-id');
+          var name = $this.attr('data-name');
+          var price = $this.attr('data-price');
+          var weight = $this.attr('data-weight');
+          var url = $this.attr('data-url');
+          var qt = parseInt($('#qt').val());
+          inCartItemsNum += qt;
+
+          // mise à jour du nombre de produit dans le widget
+          $('#in-cart-items-num').html(inCartItemsNum);
+
+          var newArticle = true;
+
+          // vérifie si l'article est pas déjà dans le panier
+          cartArticles.forEach(function(v) {
+            // si l'article est déjà présent, on incrémente la quantité
+            if (v.id == id) {
+              newArticle = false;
+              v.qt += qt;
+              $('#'+ id).html('<a href="'+ url +'">'+ name +'<br><small>Quantité : <span class="qt">'+ v.qt +'</span></small></a>');
+            }
+          });
+
+          // s'il est nouveau, on l'ajoute
+          if (newArticle) {
+            $('#cart-dropdown').prepend('<li id="'+ id +'"><a href="'+ url +'">'+ name +'<br><small>Quantité : <span class="qt">'+ qt +'</span></small></a></li>');
+
+            cartArticles.push({
+              id: id,
+              name: name,
+              price: price,
+              weight: weight,
+              qt: qt,
+              url: url
+            });
+          }
+
+          // sauvegarde le panier
+          saveCart(inCartItemsNum, cartArticles);
+
+          // affiche le contenu du panier si c'est le premier article
+          cartEmptyToggle();
+        });
+      </script>
+
+
+
+      <script>
+      // si on est sur la page ayant pour url monsite.fr/panier/
+if (window.location.pathname == '/panier/') {
+  var items = '';
+  var subTotal = 0;
+  var total;
+  var weight = 0;
+
+  /* on parcourt notre array et on créé les lignes du tableau pour nos articles :
+  * - Le nom de l'article (lien cliquable qui mène à la fiche produit)
+  * - son prix
+  * - la dernière colonne permet de modifier la quantité et de supprimer l'article
+  *
+  * On met aussi à jour le sous total et le poids total de la commande
+  */
+  cartArticles.forEach(function(v) {
+    // opération sur un entier pour éviter les problèmes d'arrondis
+    var itemPrice = v.price.replace(',', '.') * 1000;
+    items += '<tr data-id="'+ v.id +'">\
+             <td><a href="'+ v.url +'">'+ v.name +'</a></td>\
+             <td>'+ v.price +'€</td>\
+             <td><span class="qt">'+ v.qt +'</span> <span class="qt-minus">–</span> <span class="qt-plus">+</span> \
+             <a class="delete-item">Supprimer</a></td></tr>';
+    subTotal += v.price.replace(',', '.') * v.qt;
+    weight += v.weight * v.qt;
+  });
+
+  // on reconverti notre résultat en décimal
+  subTotal = subTotal / 1000;
+
+  // On insère le contenu du tableau et le sous total
+  $('#cart-tablebody').empty().html(items);
+  $('.subtotal').html(subTotal.toFixed(2).replace('.', ','));
+
+  // lorsqu'on clique sur le "+" du panier
+  $('.qt-plus').on('click', function() {
+    var $this = $(this);
+
+    // récupère la quantité actuelle et l'id de l'article
+    var qt = parseInt($this.prevAll('.qt').html());
+    var id = $this.parent().parent().attr('data-id');
+    var artWeight = parseInt($this.parent().parent().attr('data-weight'));
+
+    // met à jour la quantité et le poids
+    inCartItemsNum += 1;
+    weight += artWeight;
+    $this.prevAll('.qt').html(qt + 1);
+    $('#in-cart-items-num').html(inCartItemsNum);
+    $('#'+ id + ' .qt').html(qt + 1);
+
+    // met à jour cartArticles
+    cartArticles.forEach(function(v) {
+        // on incrémente la qt
+        if (v.id == id){
+            v.qt += 1;
+
+            // récupération du prix
+            // on effectue tous les calculs sur des entiers
+            subTotal = ((subTotal * 1000) + (parseFloat(v.price.replace(',', '.')) * 1000)) / 1000;
+        }
+    });
+
+    // met à jour la quantité du widget et sauvegarde le panier
+    $('.subtotal').html(subTotal.toFixed(2).replace('.', ','));
+    saveCart(inCartItemsNum, cartArticles);
+  });
+
+  // quantité -
+  $('.qt-minus').click(function() {
+    var $this = $(this);
+    var qt = parseInt($this.prevAll('.qt').html());
+    var id = $this.parent().parent().attr('data-id');
+    var artWeight = parseInt($this.parent().parent().attr('data-weight'));
+
+    if (qt > 1) {
+      // maj qt
+      inCartItemsNum -= 1;
+      weight -= artWeight;
+      $this.prevAll('.qt').html(qt - 1);
+      $('#in-cart-items-num').html(inCartItemsNum);
+      $('#'+ id + ' .qt').html(qt - 1);
+
+      cartArticles.forEach(function(v) {
+          // on décrémente la qt
+          if (v.id == id) {
+              v.qt -= 1;
+
+              // récupération du prix
+              // on effectue tous les calculs sur des entiers
+              subTotal = ((subTotal * 1000) - (parseFloat(v.price.replace(',', '.')) * 1000)) / 1000;
+          }
+      });
+
+      $('.subtotal').html(subTotal.toFixed(2).replace('.', ','));
+      saveCart(inCartItemsNum, cartArticles);
+    }
+  });
+
+  // suppression d'un article
+  $('.delete-item').click(function() {
+    var $this = $(this);
+    var qt = parseInt($this.prevAll('.qt').html());
+    var id = $this.parent().parent().attr('data-id');
+    var artWeight = parseInt($this.parent().parent().attr('data-weight'));
+    var arrayId = 0;
+    var price;
+
+    // maj qt
+    inCartItemsNum -= qt;
+    $('#in-cart-items-num').html(inCartItemsNum);
+
+    // supprime l'item du DOM
+    $this.parent().parent().hide(600);
+    $('#'+ id).remove();
+
+    cartArticles.forEach(function(v) {
+        // on récupère l'id de l'article dans l'array
+        if (v.id == id) {
+            // on met à jour le sous total et retire l'article de l'array
+            // as usual, calcul sur des entiers
+            var itemPrice = v.price.replace(',', '.') * 1000;
+            subTotal -= (itemPrice * qt) / 1000;
+            weight -= artWeight * qt;
+            cartArticles.splice(arrayId, 1);
+
+            return false;
+        }
+        arrayId++;
+    });
+
+    $('.subtotal').html(subTotal.toFixed(2).replace('.', ','));
+    saveCart(inCartItemsNum, cartArticles);
+    cartEmptyToggle();
+  });
+}
+</script>
+    </body>
+    </html>
